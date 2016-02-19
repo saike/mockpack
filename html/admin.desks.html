@@ -1,0 +1,69 @@
+<div class="content_wrapper pages full">
+
+  <div>
+    <a href="[[ 'admin.urls[0]' | route ]]" class="btn warning">BACK</a>
+  </div>
+
+  <div class="pages_list form">
+    <table>
+      <tr>
+        <th>Order</th>
+        <th>Page</th>
+        <th>Name</th>
+        <th>Background Color</th>
+        <th>Background Image</th>
+        <th>Height</th>
+        <th></th>
+      </tr>
+      <tr data-ng-repeat="desk in desks() | orderBy:'page_id'">
+        <td>
+          <input type="text" style="width: 50px;" data-ng-model="desk.order" data-ng-change="save_desk(desk)"/>
+        </td>
+        <td>
+          <select name="page" data-ng-options="page.id as page.name for page in pages()" data-ng-model="desk.page_id" data-ng-change="save_desk(desk)"></select>
+        </td>
+        <td>
+          <input type="text" data-ng-model="desk.name" data-ng-change="save_desk(desk)"/>
+        </td>
+        <td data-ng-style="{ backgroundColor: desk.bg_color }">
+          <input type="text" data-ng-model="desk.bg_color" data-ng-change="save_desk(desk)"/>
+        </td>
+        <td data-ng-style="{ backgroundImage: bg_image(desk.bg_image)  }" class="bg_image full">
+          <input type="text" data-ng-model="desk.bg_image" data-ng-change="save_desk(desk)" data-ng-style="{ opacity: (desk.bg_image ? 0.7 : 1) }"/>
+        </td>
+        <td>
+          <input type="text" data-ng-model="desk.height" data-ng-change="save_desk(desk)"/>
+        </td>
+        <td>
+          <button class="btn" data-ng-click="delete_desk(desk)">&#215;</button>
+        </td>
+      </tr>
+    </table>
+    <table style="margin-top: 40px;">
+      <tr>
+        <td>
+          <input type="text" style="width: 50px;" data-ng-model="new_desk.order"/>
+        </td>
+        <td>
+          <select name="page" data-ng-options="page.id as page.name for page in pages()" data-ng-model="new_desk.page_id"></select>
+        </td>
+        <td>
+          <input type="text" data-ng-model="new_desk.name" placeholder="New desk name"/>
+        </td>
+        <td data-ng-style="{ backgroundColor: new_desk.bg_color }">
+          <input type="text" data-ng-model="new_desk.bg_color"/>
+        </td>
+        <td data-ng-style="{ backgroundImage: bg_image(new_desk.bg_image)  }" class="bg_image full">
+          <input type="text" data-ng-model="new_desk.bg_image" data-ng-style="{ opacity: (new_desk.bg_image ? 0.7 : 1) }"/>
+        </td>
+        <td>
+          <input type="text" data-ng-model="new_desk.height"/>
+        </td>
+        <td>
+          <button type="submit" class="btn primary" data-ng-click="save_desk();">CREATE DESK</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>

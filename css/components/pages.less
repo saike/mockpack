@@ -1,0 +1,31 @@
+@import (reference) "../core/vars";
+@import (reference) "../core/mixins";
+
+.pages {
+  .pages_list {
+    margin-top: 40px;
+
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+    td, th {
+      border: 1px solid @dark_mid;
+      text-align: left;
+      padding: 10px;
+    }
+    th {
+      background-color: @blank;
+    }
+    input[type=checkbox] {
+      margin-left: 20px;
+    }
+  }
+
+  .page_create {
+    margin-top: 40px;
+    input {
+      vertical-align: top;
+    }
+  }
+}

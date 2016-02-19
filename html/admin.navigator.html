@@ -1,0 +1,18 @@
+<table class="table nav_table" style="margin: 100px auto;">
+  <tr>
+    <td>
+      <a href="[[ 'admin_pages.urls[0]' | route ]]" class="btn nav_btn pages">PAGES</a>
+    </td>
+    <td>
+      <a href="[[ 'admin_desks.urls[0]' | route ]]" class="btn nav_btn desks">DESKS</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="[[ 'admin_mocks.urls[0]' | route ]]" class="btn nav_btn mocks">MOCKS</a>
+    </td>
+    <td>
+      <a class="btn nav_btn logout" data-ng-click="$event.preventDefault(); logout()">LOGOUT</a>
+    </td>
+  </tr>
+</table>

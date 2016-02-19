@@ -1,0 +1,39 @@
+<div class="content_wrapper pages full">
+
+  <div>
+    <a href="[[ 'admin.urls[0]' | route ]]" class="btn warning">BACK</a>
+  </div>
+
+  <div class="pages_list form">
+    <table>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Home</th>
+        <th></th>
+      </tr>
+      <tr data-ng-repeat="page in pages()">
+        <td>
+          [[ $index+1 ]].
+        </td>
+        <td>
+          <input type="text" data-ng-model="page.name" data-ng-change="save_page(page)"/>
+        </td>
+        <td>
+          <input type="checkbox" data-ng-model="page.is_main" data-ng-change="save_page(page)"/>
+        </td>
+        <td>
+          <button class="btn" data-ng-click="delete_page(page)">&#215;</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="page_create">
+    <form class="form" data-ng-submit="save_page();">
+      <input type="text" style="width: 300px;" data-ng-model="new_page.name" placeholder="Enter name of new page"/>
+      <button type="submit" class="btn primary">CREATE PAGE</button>
+    </form>
+  </div>
+
+</div>

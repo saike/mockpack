@@ -1,0 +1,44 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-US">
+<head profile="http://www.w3.org/2005/10/profile">
+  <link rel="icon" type="image/png" href="img/favicon.jpg">
+
+  <title>Mock Pack</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/app.css"/>
+
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+
+  <script src="js/lib/angular.min.js"></script>
+  <script src="js/lib/angular-route.min.js"></script>
+
+  <script src="js/app/parse.js"></script>
+  <script src="js/app/routes.js"></script>
+  <script src="js/app/admin.js"></script>
+  <script src="js/app/home.js"></script>
+  <script src="js/app/desks.js"></script>
+  <script src="js/app/mocks.js"></script>
+
+  <script src="js/app/mockpack.js"></script>
+
+</head>
+<body data-ng-app="mockpack">
+  <div data-loading-fader data-ng-class="{ loading: is_loading() }" class="loading_fader">
+    <table>
+      <tr>
+        <td>
+          LoOooAaAdiiIIng...
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div data-ng-view class="mockpack_wrapper"></div>
+  <div class="no_content_notifier" data-loading-fader data-ng-class="{ loading: is_loading() }">
+    OOps.. It is no any content here =)
+  </div>
+</body>
+</html>

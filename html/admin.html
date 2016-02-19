@@ -1,0 +1,61 @@
+<div>
+  <div class="content_wrapper login_form full" data-ng-show="!get_user()">
+    <form data-ng-submit="login()" class="form clearfix">
+      <label class="pull_left" for="">Login</label>
+      <input class="pull_left" type="text" data-ng-model="form.login" style="margin-right: 10px;"/>
+      <label class="pull_left" for="">Password</label>
+      <input class="pull_left" type="password" data-ng-model="form.password" style="margin-right: 10px;"//>
+      <button class="pull_left btn primary" type="submit">LOGIN</button>
+    </form>
+  </div>
+
+  <div data-ng-show="get_user()" class="content_wrapper full">
+
+    <admin-nav></admin-nav>
+
+    <!--<div>-->
+      <!--<p>Mock type</p> <br/>-->
+      <!--<div>-->
+        <!--<label for="image">Image</label>-->
+        <!--<input id="image" type="checkbox" name="mock_type" data-ng-click="set_mock_type(0)" data-ng-checked="mock.type == 'image'"/>-->
+      <!--</div>-->
+      <!--<div>-->
+        <!--<label for="video">Video</label>-->
+        <!--<input id="video" type="checkbox" name="mock_type" data-ng-click="set_mock_type(1)" data-ng-checked="mock.type == 'video'"/>-->
+      <!--</div>-->
+      <!--<div>-->
+        <!--<label for="audio">Audio</label>-->
+        <!--<input id="audio" type="checkbox" name="mock_type" data-ng-click="set_mock_type(2)" data-ng-checked="mock.type == 'audio'"/>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<div data-ng-switch="mock.type">-->
+
+      <!--<div data-ng-switch-when="image">-->
+        <!--<form data-ng-submit="create_mock()">-->
+          <!--<label for="">Image URL</label>-->
+          <!--<input type="text" data-ng-model="mock.content.url"/>-->
+          <!--<button type="submit">CREATE</button>-->
+        <!--</form>-->
+      <!--</div>-->
+
+      <!--<div data-ng-switch-when="video">-->
+
+        <!--<form data-ng-submit="create_mock()">-->
+          <!--<label for="">Video URL</label>-->
+          <!--<input type="text" data-ng-model="mock.content.url"/>-->
+          <!--<button type="submit">CREATE</button>-->
+        <!--</form>-->
+
+      <!--</div>-->
+
+      <!--<div data-ng-switch-when="audio">-->
+        <!--Audio-->
+      <!--</div>-->
+
+    <!--</div>-->
+
+
+  </div>
+
+</div>

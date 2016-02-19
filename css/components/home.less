@@ -1,0 +1,11 @@
+@import (reference) "../core/mixins";
+
+.home_wrapper {
+  opacity: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  .transition(all 1s ease);
+  &.state_show {
+    opacity: 100;
+  }
+}

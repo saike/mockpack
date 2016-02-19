@@ -1,0 +1,131 @@
+@import (reference) "../core/mixins";
+@import (reference) "../core/vars";
+
+body, html {
+  min-height: 100%;
+  width: 100%;
+  background-color: @dark;
+}
+
+.mockpack_wrapper {
+  position: relative;
+  -webkit-box-shadow: 0px 28px 96px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 28px 96px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 28px 96px 0px rgba(0,0,0,0.75);
+  z-index: 1;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.content_wrapper {
+  padding: 40px;
+  background-color: @blank;
+  a,span,div,p,button,label {
+    font-family: "Lucida Grande", sans-serif, Arial;
+    font-size: 16px;
+  }
+  &.full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 !important;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+}
+
+.table {
+  td {
+    vertical-align: top;
+    padding: 10px;
+  }
+}
+
+.pull_left {
+  float: left;
+}
+
+.pull_right {
+  float: right;
+}
+
+.clearfix:after {
+  content: " "; /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.loading_fader {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background-color: rgba(0,0,0,0.9);
+  .transition(opacity 1s ease);
+  &.loading {
+    opacity: 1;
+    z-index: 10000;
+  }
+  table {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    td {
+      font-family: "Lucida Grande", sans-serif, Arial;
+      vertical-align: middle;
+      color: @blank;
+      text-align: center;
+    }
+  }
+}
+
+.bg_image {
+
+  background-repeat: no-repeat;
+
+  &.repeat {
+    background-repeat: repeat;
+  }
+
+  &.cover {
+    background-size: cover;
+  }
+
+  &.full {
+    background-size: 100% 100%;
+  }
+}
+
+.repeat_bg_image {
+  background-repeat: repeat;
+}
+
+.no_content_notifier {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 0;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  color: @blank;
+  font-family: "Lucida Grande", sans-serif, Arial;
+  z-index: -1;
+  font-size: 1.3vw;
+  opacity: 1;
+  &.loading {
+    opacity: 0;
+  }
+}

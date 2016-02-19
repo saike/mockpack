@@ -1,0 +1,15 @@
+<div class="mock_wrapper" data-ng-class="{ link: mock.link, visible: visible }" data-ng-style="{ top: style().top, left: (mock.left + '%'), width: (mock.width + '%'), height: style().height, backgroundColor: mock.bg_color }" data-ng-switch="mock.type" data-ng-click="go_link()">
+
+    <div data-ng-switch-when="image" class="contenter">
+      <img class="content_image" data-ng-src="[[ mock.content.url ]]" alt="image"/>
+    </div>
+
+    <div data-ng-switch-when="text" class="contenter">
+      <p class="content_text" data-ng-style="{ color: mock.content.color, fontSize: (mock.content.font_size + 'vw'), fontFamily: mock.content.font }" data-ng-bind-html="mock.content.text | to_html"></p>
+    </div>
+
+    <div data-ng-switch-when="video" class="contenter">
+      <iframe data-youtube data-url="mock.content.url" frameborder="0" class="content_video"></iframe>
+    </div>
+
+</div>

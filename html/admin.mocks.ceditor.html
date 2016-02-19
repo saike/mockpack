@@ -1,0 +1,46 @@
+<div data-ng-switch="mock.type" class="form content_editor">
+  <table data-ng-switch-when="text">
+    <tr>
+      <td>
+        <label>Text</label>
+        <textarea cols="30" rows="5" data-ng-model="mock.content.text" data-ng-change="save_content()"></textarea>
+      </td>
+      <td>
+        <div data-ng-style="{ backgroundColor: mock.content.color }" style="padding: 0 0 0 5px;">
+          <label>Color</label>
+          <input type="text" style="width: 120px;"  data-ng-model="mock.content.color" data-ng-change="save_content()"/>
+        </div>
+        <div style="padding: 0 0 0 5px; margin-top: 10px;">
+          <label>Font size</label>
+          <input type="text" style="width: 100px;"  data-ng-model="mock.content.font_size" data-ng-change="save_content()"/>
+        </div>
+        <div style="padding: 0 0 0 5px; margin-top: 10px;">
+          <label>Font</label>
+          <input type="text" style="width: 130px;" data-ng-model="mock.content.font" data-ng-change="save_content()"/>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table data-ng-switch-when="image">
+    <tr>
+      <td>
+        <label>URL</label>
+        <input type="text" style="width: 400px;"  data-ng-model="mock.content.url" data-ng-change="save_content()"/>
+      </td>
+      <td data-ng-show="mock.content.url">
+        <img style="width: 100px;" data-ng-src="[[ mock.content.url ]]" alt="">
+      </td>
+    </tr>
+  </table>
+  <table data-ng-switch-when="video">
+    <tr>
+      <td>
+        <label>URL</label>
+        <input type="text" style="width: 400px;"  data-ng-model="mock.content.url" data-ng-change="save_content()"/>
+      </td>
+      <td data-ng-show="mock.content.url">
+        <iframe data-youtube data-url="mock.content.url" frameborder="0"></iframe>
+      </td>
+    </tr>
+  </table>
+</div>

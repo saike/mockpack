@@ -1,0 +1,109 @@
+<div class="content_wrapper pages full">
+
+  <div>
+    <a href="[[ 'admin.urls[0]' | route ]]" class="btn warning">BACK</a>
+  </div>
+
+  <div class="pages_list mock_list form">
+    <table>
+      <tr>
+        <th>Desk</th>
+        <th>Type</th>
+        <th>Top</th>
+        <th>Left</th>
+        <th>Width</th>
+        <th>Height</th>
+        <th>Background</th>
+        <th>Link</th>
+        <th>Content</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr data-ng-repeat-start="mock in mocks() | orderBy:'desk_id'" data-ng-init="edit_mock = false;">
+        <td>
+          <select name="desk" data-ng-options="desk.id as desk.name for desk in desks()" data-ng-model="mock.desk_id" data-ng-change="save_mock(mock)"></select>
+        </td>
+        <td>
+          <select name="type" data-ng-options="type.type as type.type for type in blank_mocks" data-ng-model="mock.type" data-ng-change="set_mock_type(mock); save_mock(mock);"></select>
+        </td>
+        <td>
+          <input type="text" style="width: 100px;" data-ng-model="mock.top" data-ng-change="save_mock(mock)"/>
+        </td>
+        <td>
+          <input type="text" style="width: 100px;" data-ng-model="mock.left" data-ng-change="save_mock(mock)"/>
+        </td>
+        <td>
+          <input type="text" style="width: 100px;" data-ng-model="mock.width" data-ng-change="save_mock(mock)"/>
+        </td>
+        <td>
+          <input type="text" style="width: 100px;" data-ng-model="mock.height" data-ng-change="save_mock(mock)"/>
+        </td>
+        <td data-ng-style="{ backgroundColor: mock.bg_color }">
+          <input type="text" style="width: 130px;" data-ng-model="mock.bg_color" data-ng-change="save_mock(mock)"/>
+        </td>
+        <td>
+          <input type="text" style="width: 250px;"  data-ng-model="mock.link" data-ng-change="save_mock(mock)"/>
+        </td>
+        <td>
+          <button type="button" class="btn primary" data-ng-click="edit_mock = !edit_mock;">EDIT</button>
+        </td>
+        <td>
+          <button class="btn" data-ng-click="clone_mock(mock)">Clone</button>
+        </td>
+        <td>
+          <button class="btn" data-ng-click="delete_mock(mock)">&#215;</button>
+        </td>
+      </tr>
+      <tr data-ng-repeat-end data-ng-show="edit_mock">
+        <td colspan="11">
+          <mock-content-editor data-mock="mock" data-on-change="save_mock"></mock-content-editor>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="pages_list mock_list form" style="margin-top: 40px;">
+    <table data-ng-init="edit_mock = false;">
+      <tr>
+        <td>
+          <select name="desk" data-ng-options="desk.id as desk.name for desk in desks()" data-ng-model="new_mock.desk_id"></select>
+        </td>
+        <td>
+          <select name="type" data-ng-options="type.type as type.type for type in blank_mocks" data-ng-model="new_mock.type" data-ng-change="set_mock_type(new_mock);"></select>
+        </td>
+        <td>
+          <input type="text" style="width: 100px;" data-ng-model="new_mock.top"/>
+        </td>
+        <td>
+          <input type="text" style="width: 100px;" data-ng-model="new_mock.left"/>
+        </td>
+        <td>
+          <input type="text" style="width: 100px;" data-ng-model="new_mock.width"/>
+        </td>
+        <td>
+          <input type="text" style="width: 100px;" data-ng-model="new_mock.height"/>
+        </td>
+        <td data-ng-style="{ backgroundColor: new_mock.bg_color }">
+          <input type="text" style="width: 130px;" data-ng-model="new_mock.bg_color"/>
+        </td>
+        <td>
+          <input type="text" style="width: 250px;"  data-ng-model="new_mock.link"/>
+        </td>
+        <td>
+          <button type="button" class="btn primary" data-ng-click="edit_mock = !edit_mock;">EDIT</button>
+        </td>
+      </tr>
+      <tr data-ng-show="edit_mock">
+        <td colspan="9">
+          <mock-content-editor data-mock="new_mock"></mock-content-editor>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="9" style="text-align: right;">
+          <button type="submit" class="btn success" data-ng-click="edit_mock = false; save_mock();">CREATE MOCK</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
